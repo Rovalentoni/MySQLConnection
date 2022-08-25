@@ -30,13 +30,14 @@ class Service
     //Salvar as informações do SELECT numa variável. 
 
     public function selectSqlSave($queryParam)
-    {   
+    {   $info = [];
         $selectObj = $this->mysqliService->mysqli -> query ($queryParam);
         
         while ($infoDb = $selectObj->fetch_assoc()) { //"While isso conseguir ser executado, prosseguir. O fetch_assoc lê uma row por vez e salva na variável como uma array associativa, até a última."
             //  print_r($infoDb);
+            $info[] = $infoDb;
         }
-        return $infoDb;
+        return $info;
     }   
 }
 

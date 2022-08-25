@@ -1,25 +1,22 @@
 <?php
 
-Class Router {
+class Router
+{
 
-function __construct() {
-define('INCLUDE_PATH', __DIR__);
+    function __construct()
+    {
+        define('INCLUDE_PATH', __DIR__);
 
-include_once(INCLUDE_PATH . '/connection.php');
-include_once(INCLUDE_PATH . '/Service/service.php');
-}
-
-
+        include_once(INCLUDE_PATH . '/connection.php');
+        include_once(INCLUDE_PATH . '/Service/service.php');
+    }
 }
 
 new Router();
 
-function showListDb() {
-    include_once (INCLUDE_PATH . '/View/view.php');
-    $showList = new Service;
-    $infoDb = $showList->selectSqlSave('SELECT * from test_table');
-    
-
+function showListDb()
+{
+    include_once(INCLUDE_PATH . '/View/view.php');
 }
 
 showListDb();
