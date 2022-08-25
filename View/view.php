@@ -12,13 +12,18 @@
         <td>Nome</td>
         <td>Data de Nascimento</td>
     </tr>
-    <?php while ($infoDb = $selectSql->fetch_assoc()) { ?>
+    <?php 
+        $showList = new Service;
+        $showList->selectSqlSave();
+        // while ($infoDb = $showlist->serviceQuery('SELECT * FROM test_table') -> fetch_assoc()) {
+        
+        ?>
         <tr>
             <td><?php echo $infoDb['id']; ?></td> <!-- Cria-se uma variável (infoDb), pega-se o resultado da query SELECT (selectSql) e aplica o método fetch_assoc, que guardará a informação da query na variável infoDb. -->
             <td><?php echo $infoDb['ds_name']; ?></td>
             <td><?php echo $infoDb['dt_birth']; ?></td>
         </tr>
-    <?php } ?>
+    <?php //} ?>
 </table>
 
 
