@@ -4,6 +4,9 @@
 
 class Service
 {
+
+    protected $mysqliService;
+
     public function __construct()
 
     {
@@ -21,18 +24,19 @@ class Service
 
     public function serviceQuery($query)
     {
-       return $this->mysqliService->query($query);
+       return $this->mysqliService->mysqli->query($query);
     }
 
     //Salvar as informações do SELECT numa variável. 
 
     public function selectSqlSave()
     {   
-        $selectObj = $this->mysqliService -> query ('SELECT * FROM test_table');
+        $selectObj = $this->mysqliService->mysqli -> query ('SELECT * FROM test_table');
         
         while ($infoDb = $selectObj->fetch_assoc()) { //"While isso conseguir ser executado, prosseguir. O fetch_assoc lê uma row por vez e salva na variável como uma array associativa, até a última."
-             print_r($infoDb);
+            //  print_r($infoDb);
         }
+        return $infoDb;
     }
 }
 

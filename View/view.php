@@ -15,6 +15,7 @@
     <?php 
         $showList = new Service;
         $showList->selectSqlSave();
+        print_r($infoDb['id']);
         // while ($infoDb = $showlist->serviceQuery('SELECT * FROM test_table') -> fetch_assoc()) {
         
         ?>
