@@ -16,6 +16,9 @@ new Router();
 
 function showListDb() {
     include_once (INCLUDE_PATH . '/View/view.php');
+    $showList = new Service;
+    $infoDb = $showList->selectSqlSave('SELECT * from test_table');
+    
 
 }
 
