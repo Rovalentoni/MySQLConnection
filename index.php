@@ -10,13 +10,24 @@ class Router
         include_once(INCLUDE_PATH . '/connection.php');
         include_once(INCLUDE_PATH . '/Service/service.php');
     }
+
+    function router() {
+        if(!empty($_GET['f'])) {
+            $router = $_GET['f'];
+            $this->$router();
+        } 
+    }
 }
 
 new Router();
 
 function showListDb()
 {
+    include_once(INCLUDE_PATH . '/Service/service.php');
+    $showList = new Service;
+    $infoList = $showList->list('SELECT * FROM test_table');
     include_once(INCLUDE_PATH . '/View/view.php');
+
 }
 
 showListDb();

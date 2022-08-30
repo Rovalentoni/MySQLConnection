@@ -21,25 +21,30 @@ class Service
         ]);
     }
 
-
-    public function serviceQuery($query)
-    {
-       return $this->mysqliService->mysqli->query($query);
+    function list($selectParam) {
+        return $this->mysqliService->selectSqlSave($selectParam);
     }
-
-    //Salvar as informações do SELECT numa variável. 
-
-    public function selectSqlSave($queryParam)
-    {   
-        $selectObj = $this->mysqliService->mysqli -> query ($queryParam);
-        
-        while ($infoDb = $selectObj->fetch_assoc()) { //"While isso conseguir ser executado, prosseguir. O fetch_assoc lê uma row por vez e salva na variável como uma array associativa, até a última."
-            //  print_r($infoDb);
-            $info = $infoDb;
-        }
-        return $info;
-    }   
 }
+
+
+//     public function serviceQuery($query)
+//     {
+//        return $this->mysqli->mysqli->query($query);
+//     }
+
+//     //Salvar as informações do SELECT numa variável. 
+
+//     public function selectSqlSave($queryParam)
+//     {   
+//         $selectObj = $this->mysqli->mysqli -> query ($queryParam);
+        
+//         while ($infoDb = $selectObj->fetch_assoc()) { //"While isso conseguir ser executado, prosseguir. O fetch_assoc lê uma row por vez e salva na variável como uma array associativa, até a última."
+//             //  print_r($infoDb);
+//             $info = $infoDb;
+//         }
+//         return $info;
+//     }   
+// }
 
 
 
