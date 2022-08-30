@@ -21,8 +21,9 @@ class Service
         ]);
     }
 
-    function list($selectParam) {
-        return $this->mysqliService->selectSqlSave($selectParam);
+    function list() {
+        $query = 'SELECT * FROM test_table';
+        return $this->mysqliService->selectSqlSave($query);
     }
 }
 

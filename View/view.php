@@ -12,15 +12,20 @@
         <td>Nome</td>
         <td>Data de Nascimento</td>
     </tr>
-    <?php 
- 
-        ?>
-        <tr>
-            <td><?php echo $infoList['id']; ?></td> <!-- Cria-se uma variável (infoDb), pega-se o resultado da query SELECT (selectSql) e aplica o método fetch_assoc, que guardará a informação da query na variável infoDb. -->
-            <td><?php echo $infoList['ds_name']; ?></td>
-            <td><?php echo $infoList['dt_birth']; ?></td>
+    <?php
+
+    ?>
+
+    <?php
+    foreach ($infoList as $key => $value) {
+    ?> <tr>
+            <td> <?php echo ($value['id']); ?></td>
+            <td> <?php echo ($value['ds_name']);  ?> </td>
+            <td> <?php echo ($value['dt_birth']);  ?> </td>
         </tr>
-    <?php //} ?>
+    <?php } ?>
+
+    </tr>
+    <?php //} 
+    ?>
 </table>
-
-

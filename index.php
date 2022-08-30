@@ -9,28 +9,33 @@ class Router
 
         include_once(INCLUDE_PATH . '/connection.php');
         include_once(INCLUDE_PATH . '/Service/service.php');
+        $this->router();
+        $this->showListDb();
     }
 
     function router() {
         if(!empty($_GET['f'])) {
             $router = $_GET['f'];
-            $this->$router();
-        } 
+            $router();
+        } else $this->showListDb();
     }
-}
 
-new Router();
-
-function showListDb()
+    function showListDb()
 {
     include_once(INCLUDE_PATH . '/Service/service.php');
     $showList = new Service;
-    $infoList = $showList->list('SELECT * FROM test_table');
+    $infoList = $showList->list();
+    // print_r($infoList);
+
     include_once(INCLUDE_PATH . '/View/view.php');
 
 }
 
-showListDb();
+}
+
+new Router();
+
+
 ?>
 
 <!-- //Fazer a divisão de camadas. Service, rota e view.  Chamar a service para buscar os dados. A view faz um foreach nos dados já buscados e a rota mata vagabundo. -->

@@ -27,11 +27,11 @@ class Cnn
 
     public function selectSqlSave($selectParam)
     {
-        // $infoDb = [];
+        $infoDb = [];
 
         $selectObj = $this->mysqli->query($selectParam);
         while ($info = $selectObj->fetch_assoc()) {
-            $infoDb = $info;
+            $infoDb[] = $info;
         }
         return $infoDb;
     }
