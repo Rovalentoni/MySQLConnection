@@ -9,28 +9,24 @@ class Router
 
         include_once(INCLUDE_PATH . '/connection.php');
         include_once(INCLUDE_PATH . '/Service/service.php');
-        $this->router();
-        $this->showListDb();
-    }
 
-    function router() {
-        if(!empty($_GET['f'])) {
+        if (!empty($_GET['f'])) {
             $router = $_GET['f'];
-            $router();
+            $this->$router();
         } else $this->showListDb();
     }
 
+
+
     function showListDb()
-{
-    include_once(INCLUDE_PATH . '/Service/service.php');
-    $showList = new Service;
-    $infoList = $showList->list();
-    // print_r($infoList);
+    {
+        include_once(INCLUDE_PATH . '/Service/service.php');
+        $showList = new Service;
+        $infoList = $showList->list();
+        // print_r($infoList);
 
-    include_once(INCLUDE_PATH . '/View/view.php');
-
-}
-
+        include_once(INCLUDE_PATH . '/View/view.php');
+    }
 }
 
 new Router();
